@@ -1,0 +1,33 @@
+{
+  "properties": [
+    {
+      "name": "file.uploadFolder.url",
+      "type": "java.lang.String",
+      "description": "Description for file.uploadFolder."
+    },
+    {
+      "name": "jwt.tokenPrefix",
+      "type": "java.lang.String",
+      "description": "Description for jwt.tokenPrefix."
+    },
+    {
+      "name": "jwt.tokenHeader",
+      "type": "java.lang.String",
+      "description": "Description for jwt.tokenHeader."
+    },
+    {
+      "name": "jwt.secret",
+      "type": "java.lang.String",
+      "description": "Description for jwt.secret."
+    },
+    {
+      "name": "jwt.expiration",
+      "type": "java.lang.Integer",
+      "description": "Description for jwt.expiration."
+    },
+    {
+      "name": "jwt.rememberExpiration",
+      "type": "java.lang.String",
+      "description": "Description for jwt.rememberExpiration."
+    }
+  ] }
