@@ -62,7 +62,7 @@ public class LoginController {
             ret.put("token", token);
         } else {
             log.info("管理员登录失败");
-            ret.put("code", 1002);
+            ret.put("code", 1001);
             ret.put("message", "admin login fail");
         }
         return ret;

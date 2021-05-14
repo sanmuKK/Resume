@@ -64,7 +64,7 @@ public class ResumeFileController {
             if (!dest.getParentFile().exists()) {
                 if (!dest.getParentFile().mkdirs()) {
                     log.warn("上传文件失败,无存储文件夹");
-                    ret.put("code", 1005);
+                    ret.put("code", 1006);
                     ret.put("message", "程序错误");
                     return ret;
                 }
@@ -73,7 +73,7 @@ public class ResumeFileController {
                 file.transferTo(dest);
             } catch (Exception e) {
                 log.warn("上传文件失败");
-                ret.put("code", 1006);
+                ret.put("code", 1007);
                 ret.put("message", "程序错误，请重新上传");
                 return ret;
             }
@@ -95,7 +95,7 @@ public class ResumeFileController {
     }
 
     @GetMapping("/downloadFile")
-    public void download(@RequestParam("resumeFileId") int resumeFileId,
+    public void download(@RequestParam("resumeFileId") String resumeFileId,
                          HttpServletResponse response) {
         ResumeFile resumeFile = resumeFileService.getById(resumeFileId);
         try (FileInputStream fileInputStream = new FileInputStream(uploadFilePath +

@@ -1,0 +1,98 @@
+drop TABLE IF EXISTS resume;
+drop TABLE IF EXISTS userTable;
+drop TABLE IF EXISTS admin;
+drop TABLE IF EXISTS role;
+drop TABLE IF EXISTS admin_role;
+drop TABLE IF EXISTS resumeFile;
+drop TABLE IF EXISTS resume_resumeFile;
+
+CREATE TABLE admin
+(
+    id       int AUTO_INCREMENT,
+    account  VARCHAR(64) NOT NULL DEFAULT '' UNIQUE,
+    password VARCHAR(64) NOT NULL default '',
+    name     VARCHAR(16) NOT NULL DEFAULT 'Admin',
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE role
+(
+    id       int AUTO_INCREMENT,
+    roleName VARCHAR(64) NOT NULL DEFAULT '',
+    PRIMARY KEY (id)
+);
+CREATE TABLE admin_role
+(
+    id      int AUTO_INCREMENT,
+    adminId int NOT NULL,
+    roleId  int NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE userTable
+(
+    id           int AUTO_INCREMENT,
+    introduce    TEXT,
+    content      TEXT,
+    title        VARCHAR(16) NOT NULL DEFAULT '',
+    hasNew       BOOLEAN     NOT NULL DEFAULT FALSE,
+    ownerAdminId int         NOT NULL,
+    PRIMARY KEY (id)
+);
+CREATE TABLE resume
+(
+    id               int AUTO_INCREMENT,
+    stuNumber        VARCHAR(64) NOT NULL UNIQUE,
+    email            VARCHAR(64) NOT NULL,
+    content          TEXT,
+    isPass           BOOLEAN     NOT NULL DEFAULT FALSE,
+    uploadTime       DATETIME    NOT NULL DEFAULT NOW(),
+    ownerAdminId     int         NOT NULL,
+    ownerUserTableId int         NOT NULL,
+    PRIMARY KEY (id)
+);
+CREATE TABLE resumeFile
+(
+    id          VARCHAR(64)  NOT NULL,
+    fileName    VARCHAR(128) NOT NULL DEFAULT '',
+    fileAddress VARCHAR(128) NOT NULL DEFAULT '',
+    PRIMARY KEY (id)
+);
+CREATE TABLE resume_resumeFile
+(
+    id           int AUTO_INCREMENT,
+    resumeId     int         NOT NULL,
+    resumeFileId VARCHAR(64) NOT NULL,
+    PRIMARY KEY (id)
+);
+# DELIMITER $$
+# CREATE TRIGGER `id_trigger`
+#     BEFORE INSERT
+#     ON `resumeFile`
+#     FOR EACH ROW
+# BEGIN
+#     SET new.id = REPLACE(UUID(), '-', '');
+# END $$
+# DELIMITER ;
+
+
+Insert INTO role (roleName)
+VALUES ('superAdmin');
+Insert INTO role (roleName)
+VALUES ('commonAdminIssue');
+Insert INTO role (roleName)
+VALUES ('commonAdminPass');
+Insert INTO role (roleName)
+VALUES ('commonAdminRead');
+INSERT INTO admin (account, password, name)
+VALUES ('08c1e89c0590b66c452d7370540b2dc6cf8be5c381a18f6ae5de234069ff79e2',
+        '6484a533d336987b92744baae81e7606cc4166b4d9229efbadbdc5f7662d5ed9',
+        'superAdmin');
+Insert INTO admin_role(adminId, roleId)
+VALUES (1, 1);
+Insert INTO admin_role(adminId, roleId)
+VALUES (1, 2);
+Insert INTO admin_role(adminId, roleId)
+VALUES (1, 3);
+Insert INTO admin_role(adminId, roleId)
+VALUES (1, 4);

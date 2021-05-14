@@ -17,7 +17,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 addPathPatterns("/**");
         registry.addInterceptor(getJwtInterceptor())
                 .addPathPatterns("/**")
-                .excludePathPatterns("/resume/downloadFile")
+                .excludePathPatterns("/resume/uploadResume")
+                .excludePathPatterns("/resume/uploadFile")
                 .excludePathPatterns("/admin/auth/login")
                 .excludePathPatterns("/superAdmin/auth/login");
         registry.addInterceptor(getSuperAdminInterceptor())

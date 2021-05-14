@@ -1,0 +1,1628 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:o="urn:schemas-microsoft-com:office:office"
+    xmlns:w="urn:schemas-microsoft-com:office:word"
+    xmlns="http://www.w3.org/TR/REC-html40">
+    <head><meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <style type="text/css">
+        table  
+        {  
+            border-collapse: collapse;
+            border: none;  
+            width: 100%;  
+        }  
+        td,tr  
+        {  
+            border: solid #CCC 1px;
+            padding:3px;
+            font-size:9pt;
+        } 
+        .codestyle{
+            word-break: break-all;
+            mso-highlight:rgb(252, 252, 252);
+            padding-left: 5px; background-color: rgb(252, 252, 252); border: 1px solid rgb(225, 225, 232);
+        }
+        img {
+            width:100;
+        }
+    </style>
+    <meta name=ProgId content=Word.Document>
+    <meta name=Generator content="Microsoft Word 11">
+    <meta name=Originator content="Microsoft Word 11">
+    <xml><w:WordDocument><w:View>Print</w:View></xml></head>
+    <body><h1>全局错误码</h1><div style="margin-left:20px;"><p><strong>全局错误码</strong></p>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">错误码</th>
+<th style="text-align: left;">信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1000</td>
+<td style="text-align: left;">成功</td>
+</tr>
+<tr>
+<td style="text-align: left;">1001</td>
+<td style="text-align: left;">管理员登录失败</td>
+</tr>
+<tr>
+<td style="text-align: left;">1002</td>
+<td style="text-align: left;">权限不足</td>
+</tr>
+<tr>
+<td style="text-align: left;">1003</td>
+<td style="text-align: left;">添加小组管理员失败，用户名已存在</td>
+</tr>
+<tr>
+<td style="text-align: left;">1004</td>
+<td style="text-align: left;">无此管理员</td>
+</tr>
+<tr>
+<td style="text-align: left;">1005</td>
+<td style="text-align: left;">设置管理员读取简历权限失败</td>
+</tr>
+<tr>
+<td style="text-align: left;">1006</td>
+<td style="text-align: left;">上传文件失败,无存储文件夹</td>
+</tr>
+<tr>
+<td style="text-align: left;">1007</td>
+<td style="text-align: left;">上传文件失败</td>
+</tr>
+</tbody>
+</table></div><h1>2、Admin</h1><div style="margin-left:0px;"><h2>2.1、Auth</h2><div style="margin-left:0px;"><h3>2.1.1、登录</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8084/api/admin/auth/login</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求参数示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "account": "an",
+
+  "password": "a"
+
+}
+</code></pre></table>
+<h5>json字段说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">字段名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">account</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>用户名</td>
+</tr>
+<tr>
+<td style="text-align: left;">password</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>密码</td>
+</tr>
+</tbody>
+</table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "code": 1000,
+
+  "message": "success",
+
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiZGRkIiwiaWQiOjIsImV4cCI6MTYyMjE0MTU1NX0.MQ9vDndNc86IvpClwx_y4eP44uq_MW2KZ0xLRUWi41I"
+
+}
+</code></pre></table>
+<h5>返回参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">code</td>
+<td style="text-align: left;">string</td>
+<td>成功</td>
+</tr>
+<tr>
+<td style="text-align: left;">message</td>
+<td style="text-align: left;">string</td>
+<td>消息</td>
+</tr>
+<tr>
+<td style="text-align: left;">token</td>
+<td style="text-align: left;">string</td>
+<td>令牌</td>
+</tr>
+</tbody>
+</table>
+<h5>备注</h5></div></div><h2>2.2、CommonAdmin</h2><div style="margin-left:0px;"><h3>2.2.1、通过简历</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8084/api/admin/passResume</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>Header</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">header</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">token</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>请求参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">resumeId</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "code": 1000,
+
+  "message": "success"
+
+}
+</code></pre></table>
+<h5>备注</h5></div><h3>2.2.2、不通过简历</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8084/api/admin/notPassResume</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>Header</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">header</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">token</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>请求参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">resumeId</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "code": 1000,
+
+  "message": "success"
+
+}
+</code></pre></table>
+<h5>备注</h5></div><h3>2.2.3、获取简历ById</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8084/api/admin/getResumeById</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>Header</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">header</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">token</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>请求参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">resumeId</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "id": 1,
+
+  "stuNumber": "23412412432",
+
+  "email": "1113896152@qq.com",
+
+  "content": "{'a':'a','b':'b','c':'c'}",
+
+  "isPass": false,
+
+  "uploadTime": "2021-05-02T23:18:54",
+
+  "ownerAdminId": 1,
+
+  "ownerUserTableId": 1,
+
+  "resumeFileList": [
+
+    null,
+
+    {
+
+      "id": "3656920b-b2ce-49da-9922-1ffcc5c4ee08",
+
+      "filename": "haimianbaobao.jpg"
+
+    },
+
+    {
+
+      "id": "229969eb-11cb-4e5a-b59e-8435cb91c95f",
+
+      "filename": "123.jpg"
+
+    }
+
+  ]
+
+}
+</code></pre></table>
+<h5>返回参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">string</td>
+<td>简历Id</td>
+</tr>
+<tr>
+<td style="text-align: left;">stuNumber</td>
+<td style="text-align: left;">string</td>
+<td>学号</td>
+</tr>
+<tr>
+<td style="text-align: left;">email</td>
+<td style="text-align: left;">string</td>
+<td>邮箱</td>
+</tr>
+<tr>
+<td style="text-align: left;">content</td>
+<td style="text-align: left;">string</td>
+<td>简历字段内容</td>
+</tr>
+<tr>
+<td style="text-align: left;">isPass</td>
+<td style="text-align: left;">string</td>
+<td>是否通过</td>
+</tr>
+<tr>
+<td style="text-align: left;">uploadTime</td>
+<td style="text-align: left;">string</td>
+<td>更新时间</td>
+</tr>
+<tr>
+<td style="text-align: left;">ownerAdminId</td>
+<td style="text-align: left;">string</td>
+<td>简历表创建者Id</td>
+</tr>
+<tr>
+<td style="text-align: left;">ownerUserTableId</td>
+<td style="text-align: left;">string</td>
+<td>简历表Id</td>
+</tr>
+<tr>
+<td style="text-align: left;">resumeFileList</td>
+<td style="text-align: left;">array</td>
+<td>简历文件列表</td>
+</tr>
+<tr>
+<td style="text-align: left;">filename</td>
+<td style="text-align: left;">string</td>
+<td>简历文件名</td>
+</tr>
+</tbody>
+</table>
+<h5>备注</h5></div><h3>2.2.4、获取简历列表</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8084/api/admin/getResumeList</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>Header</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">header</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">token</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>请求参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ownerUserTableId</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">page</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "total": 3,
+
+  "ResumeList": [
+
+    {
+
+      "id": 1,
+
+      "stuNumber": "23412412432",
+
+      "email": "1113896152@qq.com",
+
+      "content": "{'a':'a','b':'b','c':'c'}",
+
+      "isPass": false,
+
+      "uploadTime": "2021-05-02T23:18:54",
+
+      "ownerAdminId": 1,
+
+      "ownerUserTableId": 1,
+
+      "resumeFileList": null
+
+    },
+
+    {
+
+      "id": 2,
+
+      "stuNumber": "223412412432",
+
+      "email": "1113896152@qq.com",
+
+      "content": "{'a':'a','b':'b','c':'c'}",
+
+      "isPass": false,
+
+      "uploadTime": "2021-05-02T23:22:25",
+
+      "ownerAdminId": 1,
+
+      "ownerUserTableId": 1,
+
+      "resumeFileList": null
+
+    },
+
+    {
+
+      "id": 3,
+
+      "stuNumber": "2233412412432",
+
+      "email": "1113896152@qq.com",
+
+      "content": "{'a':'a','b':'b','c':'c'}",
+
+      "isPass": false,
+
+      "uploadTime": "2021-05-02T23:22:30",
+
+      "ownerAdminId": 1,
+
+      "ownerUserTableId": 1,
+
+      "resumeFileList": null
+
+    }
+
+  ]
+
+}
+</code></pre></table>
+<h5>返回参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">total</td>
+<td style="text-align: left;">string</td>
+<td>当前简历表下简历总数</td>
+</tr>
+<tr>
+<td style="text-align: left;">ResumeList</td>
+<td style="text-align: left;">array</td>
+<td>简历表</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">string</td>
+<td>简历Id</td>
+</tr>
+<tr>
+<td style="text-align: left;">stuNumber</td>
+<td style="text-align: left;">string</td>
+<td>学号</td>
+</tr>
+<tr>
+<td style="text-align: left;">email</td>
+<td style="text-align: left;">string</td>
+<td>邮箱</td>
+</tr>
+<tr>
+<td style="text-align: left;">content</td>
+<td style="text-align: left;">string</td>
+<td>简历字段内容</td>
+</tr>
+<tr>
+<td style="text-align: left;">isPass</td>
+<td style="text-align: left;">string</td>
+<td>是否通过</td>
+</tr>
+<tr>
+<td style="text-align: left;">uploadTime</td>
+<td style="text-align: left;">string</td>
+<td>更新时间</td>
+</tr>
+<tr>
+<td style="text-align: left;">ownerAdminId</td>
+<td style="text-align: left;">string</td>
+<td>简历表创建者Id</td>
+</tr>
+<tr>
+<td style="text-align: left;">ownerUserTableId</td>
+<td style="text-align: left;">string</td>
+<td>简历表Id</td>
+</tr>
+<tr>
+<td style="text-align: left;">resumeFileList</td>
+<td style="text-align: left;">array</td>
+<td>简历文件列表</td>
+</tr>
+</tbody>
+</table>
+<h5>备注</h5></div><h3>2.2.5、确认新简历读取状态</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8084/api/admin/confirmNewResume</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>Header</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">header</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">token</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>请求参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">userTableId</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "code": 1000,
+
+  "message": "success"
+
+}
+</code></pre></table>
+<h5>备注</h5></div><h2>2.2.1、UserTable</h2><div style="margin-left:0px;"><h3>2.2.1.1、用id获取用户表</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8084/api/admin/userTable/getUserTable?id=1</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>Header</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">header</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">token</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>令牌</td>
+</tr>
+</tbody>
+</table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "id": 1,
+
+  "introduce": "Catalog1",
+
+  "content": "{'a':'a','b':'b','c':'c'}",
+
+  "title": "111",
+
+  "ownerAdminId": 1
+
+}
+</code></pre></table>
+<h5>返回参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">int</td>
+<td>简历表id</td>
+</tr>
+<tr>
+<td style="text-align: left;">introduce</td>
+<td style="text-align: left;">string</td>
+<td>方向介绍</td>
+</tr>
+<tr>
+<td style="text-align: left;">content</td>
+<td style="text-align: left;">string</td>
+<td>简历表内字段，JSON</td>
+</tr>
+<tr>
+<td style="text-align: left;">title</td>
+<td style="text-align: left;">string</td>
+<td>简历表标题</td>
+</tr>
+<tr>
+<td style="text-align: left;">ownerAdminId</td>
+<td style="text-align: left;">int</td>
+<td>创建者id</td>
+</tr>
+</tbody>
+</table>
+<h5>备注</h5></div><h3>2.2.1.2、获取所有简历表</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8084/api/admin/userTable/getUserTableList?page=1</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>Header</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">header</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">token</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>请求参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">page</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "total": 1,
+
+  "UserTableList": [
+
+    {
+
+      "id": 1,
+
+      "introduce": "Catalog1",
+
+      "content": "{'a':'a','b':'b','c':'c'}",
+
+      "title": "111",
+
+      "ownerAdminId": 1
+
+    }
+
+  ]
+
+}
+</code></pre></table>
+<h5>返回参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">total</td>
+<td style="text-align: left;">string</td>
+<td>简历表总数</td>
+</tr>
+<tr>
+<td style="text-align: left;">UserTableList</td>
+<td style="text-align: left;">array</td>
+<td>简历表list</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">string</td>
+<td>简历表id</td>
+</tr>
+<tr>
+<td style="text-align: left;">introduce</td>
+<td style="text-align: left;">string</td>
+<td>简历表介绍</td>
+</tr>
+<tr>
+<td style="text-align: left;">content</td>
+<td style="text-align: left;">string</td>
+<td>简历表字段，Json</td>
+</tr>
+<tr>
+<td style="text-align: left;">title</td>
+<td style="text-align: left;">string</td>
+<td>简历表标题</td>
+</tr>
+<tr>
+<td style="text-align: left;">ownerAdminId</td>
+<td style="text-align: left;">string</td>
+<td>简历表创建者id</td>
+</tr>
+</tbody>
+</table>
+<h5>备注</h5></div><h3>2.2.1.3、创建简历表</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8084/api/admin/userTable/uploadUserTable</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>Header</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">header</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">token</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>请求参数示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "introduce": "Catalog1",
+
+  "content": "{'a':'a','b':'b','c':'c'}",
+
+  "title": "111"
+
+}
+</code></pre></table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "code": 1000,
+
+  "message": "success"
+
+}
+</code></pre></table>
+<h5>备注</h5></div><h3>2.2.1.4、删除简历表</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8084/api/admin/userTable/deleteUserTable?userTableId=1</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>delete</li>
+</ul>
+<h5>Header</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">header</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">token</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "code": 1000,
+
+  "message": "success"
+
+}
+</code></pre></table>
+<h5>备注</h5></div></div></div><h2>2.3、SuperAdmin</h2><div style="margin-left:0px;"><h3>2.3.1、获取管理员列表</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8084/api/superAdmin/getAdminList</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>Header</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">header</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">token</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>请求参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">page</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "AdminList": [
+
+    {
+
+      "id": 2,
+
+      "name": "ddd",
+
+      "roles": [
+
+      ]
+
+    },
+
+    {
+
+      "id": 3,
+
+      "name": "ddd",
+
+      "roles": [
+
+      ]
+
+    },
+
+    {
+
+      "id": 4,
+
+      "name": "ddd",
+
+      "roles": [
+
+      ]
+
+    }
+
+  ],
+
+  "total": 3
+
+}
+</code></pre></table>
+<h5>返回参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">AdminList</td>
+<td style="text-align: left;">array</td>
+<td>管理员列表</td>
+</tr>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">string</td>
+<td>管理员Id</td>
+</tr>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td>管理员名字</td>
+</tr>
+<tr>
+<td style="text-align: left;">roles</td>
+<td style="text-align: left;">array</td>
+<td>管理员角色</td>
+</tr>
+<tr>
+<td style="text-align: left;">total</td>
+<td style="text-align: left;">string</td>
+<td>管理员数量</td>
+</tr>
+</tbody>
+</table>
+<h5>备注</h5></div><h3>2.3.2、获取管理员ById</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8084/api/superAdmin/getAdminById</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>Header</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">header</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">token</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>请求参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">adminId</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "id": 1,
+
+  "name": "superAdmin",
+
+  "roles": [
+
+    {
+
+      "roleName": "superAdmin"
+
+    },
+
+    {
+
+      "roleName": "commonAdminIssue"
+
+    },
+
+    {
+
+      "roleName": "commonAdminPass"
+
+    },
+
+    {
+
+      "roleName": "commonAdminRead"
+
+    }
+
+  ]
+
+}
+</code></pre></table>
+<h5>返回参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">string</td>
+<td>管理员Id</td>
+</tr>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td>管理员名字</td>
+</tr>
+<tr>
+<td style="text-align: left;">roles</td>
+<td style="text-align: left;">array</td>
+<td>管理员角色</td>
+</tr>
+<tr>
+<td style="text-align: left;">roleName</td>
+<td style="text-align: left;">string</td>
+<td>管理员角色名</td>
+</tr>
+</tbody>
+</table>
+<h5>备注</h5></div><h3>2.3.3、添加管理员</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8084/api/superAdmin/addAdmin</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>Header</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">header</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">token</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>请求参数示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "account": "a1n",
+
+  "password": "a",
+
+  "name": "ddd"
+
+}
+</code></pre></table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "code": 1000,
+
+  "message": "success"
+
+}
+</code></pre></table>
+<h5>备注</h5></div><h3>2.3.4、删除管理员</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8084/api/superAdmin/delAdmin?adminId=1</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>delete</li>
+</ul>
+<h5>Header</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">header</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">token</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "code": 1000,
+
+  "message": "success"
+
+}
+</code></pre></table>
+<h5>备注</h5></div><h3>2.3.5、添加管理员审核权限</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8084/api/superAdmin/PermissionControl/addCommonAdminPass</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>Header</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">header</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">token</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>请求参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">adminId</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "code": 1000,
+
+  "message": "success"
+
+}
+</code></pre></table>
+<h5>备注</h5></div><h3>2.3.6、添加管理员读权限</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8084/api/superAdmin/PermissionControl/addCommonAdminRead</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>Header</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">header</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">token</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>请求参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">adminId</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "code": 1000,
+
+  "message": "success"
+
+}
+</code></pre></table>
+<h5>备注</h5></div><h3>2.3.7、添加管理员发布简历表权限</h3><div style="margin-left:30px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8084/api/superAdmin/PermissionControl/addCommonAdminIssue</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>Header</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">header</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">token</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>请求参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">adminId</td>
+<td style="text-align: left;">是</td>
+<td>int</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "code": 1000,
+
+  "message": "success"
+
+}
+</code></pre></table>
+<h5>备注</h5></div></div></div><h1>3、Resume</h1><div style="margin-left:0px;"><h2>3.1、上传简历</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8084/api/resume/uploadResume</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求参数示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "email": "1113896152@qq.com",
+
+  "stuNumber": "442233412412432",
+
+  "content": "{'a':'a','b':'b','c':'c'}",
+
+  "ownerUserTableId": 10,
+
+  "ownerAdminId": 1
+
+}
+</code></pre></table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "code": 1000,
+
+  "resumeId": 5,
+
+  "message": "success"
+
+}
+</code></pre></table>
+<h5>返回参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">code</td>
+<td style="text-align: left;">string</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">resumeId</td>
+<td style="text-align: left;">int</td>
+<td>简历Id</td>
+</tr>
+<tr>
+<td style="text-align: left;">message</td>
+<td style="text-align: left;">string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>备注</h5></div><h2>3.2、上传文件</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8084/api/resume/uploadFile</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">resumeId</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">files</td>
+<td style="text-align: left;">是</td>
+<td>file</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+
+  "code": 1000,
+
+  "message": "文件上传成功"
+
+}
+</code></pre></table>
+<h5>备注</h5></div><h2>3.3、下载文件</h2><div style="margin-left:0px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:8084/api/resume/downloadFile</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>Header</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">header</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">token</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>请求参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">resumeFileId</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>备注</h5></div></div></body></html>

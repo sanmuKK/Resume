@@ -89,7 +89,7 @@ public class SuperAdminController {
         } catch (DuplicateKeyException e) {
             log.warn("添加小组管理员失败,用户名已存在");
             e.printStackTrace();
-            ret.put("code", 1011);
+            ret.put("code", 1003);
             ret.put("message", "添加小组管理员失败，用户名已存在");
         }
         return ret;
@@ -106,7 +106,7 @@ public class SuperAdminController {
             ret.put("message", "success");
         } else {
             log.info("无此管理员");
-            ret.put("code", 1012);
+            ret.put("code", 1004);
             ret.put("message", "no admin");
         }
         return ret;
@@ -124,7 +124,7 @@ public class SuperAdminController {
             ret.put("message", "success");
         } else {
             log.warn("设置管理员读取简历权限失败");
-            ret.put("code", 1017);
+            ret.put("code", 1005);
             ret.put("message", "Rbac Error");
         }
         return ret;
@@ -143,7 +143,7 @@ public class SuperAdminController {
             ret.put("message", "success");
         } else {
             log.warn("设置管理员审核简历权限失败");
-            ret.put("code", 1017);
+            ret.put("code", 1005);
             ret.put("message", "Rbac Error");
         }
         return ret;
@@ -163,7 +163,7 @@ public class SuperAdminController {
             ret.put("message", "success");
         } else {
             log.warn("设置管理员审核简历权限失败");
-            ret.put("code", 1017);
+            ret.put("code", 1005);
             ret.put("message", "Rbac Error");
         }
         return ret;

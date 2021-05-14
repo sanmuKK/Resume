@@ -80,7 +80,7 @@ public class AdminController {
             ret.put("code", 1000);
             ret.put("message", "success");
         } else {
-            ret.put("code", 1020);
+            ret.put("code", 1002);
             ret.put("message", "no enough permission");
         }
         return ret;
@@ -99,7 +99,7 @@ public class AdminController {
             ret.put("code", 1000);
             ret.put("message", "success");
         } else {
-            ret.put("code", 1020);
+            ret.put("code", 1002);
             ret.put("message", "no enough permission");
         }
         return ret;
